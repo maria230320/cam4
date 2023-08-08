@@ -1,0 +1,149 @@
+
+window.Cliengo = {}; //all Cliengo configs, functions and params goes into this object
+
+window.Cliengo.chatConfig = {
+  "companyId" : "5e680644e4b00d39920b4b88",
+  "websiteId" : "636c009cda56c4002aff5abe",
+  "whiteLabelId" : "55df4ed3e4b0337744bcd65a",
+  "whiteLabelName" : "",
+  "googleAdWordsConversionId" : "",
+  "googleAnalyticsId" : "",
+  "chatbotName" : "Paulina",
+
+    "phone" : "+52",
+  "title": "Chat Café el Grande",
+  "businessHoursConfiguration" : {"enabled_channels":{"WHATSAPP_CHAT":false,"CHATBOT":false,"WHATSAPP_WIDGET":false,"WHATSAPP":false,"WEB_CHAT":false},"initial_message":"Hola, en este momento nuestros agentes no se encuentran conectados, puedes dejarnos tus datos y te contactarán en la mayor brevedad.","time_zone":"-6:00"},
+  "conversionPixels" : "",
+  "customFeedbackImageUrl" : "",
+  "widgetIcon" : "TWO_CHATS",
+   "widgetStyle" : "BAR",
+  "chatWindowColor" : "#d0021b",
+  "cliengoMeetings" : "false",
+  "chatWindowTitle" : "Servicio en Linea",
+  "chatWindowInputPlaceholder" : "Escribe un mensaje...",
+  "chatInitialMessage" : "<p class=\"editor-paragraph\"><span>Hola, estoy conectada, que producto requieres cotizar?Recuerda que si requieres comprar Online puedes hacer directo en <\/span><a href=\"https:\/\/cafeelgrande.com\/\" class=\"editor-link\" target=\"_blank\"><span>https:\/\/cafeelgrande.com\/<\/span><\/a><span> <\/span><\/p>[[café por mayoreo, suministros, cafeteras]]",
+  "chatIsWritingMessage" : " está escribiendo...",
+  "chatSaluteTimeInSeconds" : 3,
+  "avatarImgUrl": "https://res.cloudinary.com/hbrrdozyj/image/upload/w_35,f_auto,q_auto/v1668022730/cliengo_chatbot_avatar/vsrmwgqetm8qmbzwccnh.jpg",
+  "labs":{
+      },
+  "companyLabs": "mail_complete,data_no_request,almost_window,cvanalysis",
+  "planType": "CLIENGO_STARTER",
+  "vertical": "HOME_DECOR",
+    "formHooksEnabled" : false,
+  "automaticRemarketingEnabled" : true,
+  "chatEnabled" : true,
+        "poweredBy":{
+          "text": "Usamos Cliengo ",
+          "link": "https://www.cliengo.com/?utm_source=usamos_cliengo&utm_medium=chat",
+          "img":  "https://res.cloudinary.com/hbrrdozyj/image/upload/v1603736815/Usamos-Cliengo_knac91.png"
+      },
+    "customPoweredByUtms": "",
+  "softDisable": false,
+  "hasConvertedLead" : false,   "CDN_URL_DOMAIN" : "//d47r8x2gwo1do.cloudfront.net",
+        "WS_CHATBOT_URL" : "wss://chatbot.cliengo.com",
+      "sessionPath" : "/s/5e680644e4b00d39920b4b88/636c009cda56c4002aff5abe",
+  "cacheVersion" : "1438-07062065",
+  "debug" : false,
+  "whatsAppActive": true,
+  "lang" : "es",
+  "widgetVersion" : "2.0"
+}
+
+
+var host = 'https://lw.cliengo.com';
+
+var mainClgoScriptId = 'mainclgo';
+var mainWspScriptId = 'mainWsp';
+var mainclgoScriptExists = document.querySelector('script[id="' + mainClgoScriptId + '"]');
+
+loadMain();
+
+function loadMain() {
+  if(mainclgoScriptExists) {
+    console.warn('Cuidado! ya existe un script con id "' + mainClgoScriptId + '", ' +
+      'probablemente el script del chat este duplicado en ese sitio!');
+  }
+
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.id = mainClgoScriptId;
+  s.src = host + '/mainclgo.bundle.js';
+  s.setAttribute('data-company-id', '5e680644e4b00d39920b4b88');
+  s.setAttribute('data-source-id', '636c009cda56c4002aff5abe');
+  s.setAttribute('data-host', host);
+  s.async = true;
+  document.body.appendChild(s);
+  console.debug('clgo loaded');
+
+  loadWhatsAppWidget();
+}
+
+function onCommonsLoad() {
+  console.log(commonsClgoScriptId + ' script loaded successfuly.');
+  loadMain();
+}
+
+// WhatsApp functions
+function setwhatsappConfig() {
+      window.ldkWSP = {};
+    ldkWSP.widget_color = "#075E54";
+    ldkWSP.widget_message = "Chatea con nosotros";
+    ldkWSP.conversionPixelHtml = "";
+    ldkWSP.position = "";
+    ldkWSP.phone = "+528113962848";
+    ldkWSP.desktop_version = "EXTENDED";
+    ldkWSP.lang = "es";
+    ldkWSP.businessHoursConfiguration = {"enabled_channels":{"WHATSAPP_CHAT":false,"CHATBOT":false,"WHATSAPP_WIDGET":false,"WHATSAPP":false,"WEB_CHAT":false},"initial_message":"Hola, en este momento nuestros agentes no se encuentran conectados, puedes dejarnos tus datos y te contactarán en la mayor brevedad.","time_zone":"-6:00"},
+    ldkWSP.company_id = "5e680644e4b00d39920b4b88";
+    ldkWSP.website_id = "636c009cda56c4002aff5abe";
+    ldkWSP.disable_powered_by = "" === "true";
+    ldkWSP.custom_powered_by_utms = "";
+    ldkWSP.googleAnalyticsId = "";
+    ldkWSP.plan_type = "CLIENGO_STARTER";
+    ldkWSP.website_id = "636c009cda56c4002aff5abe";
+    ldkWSP.show_desktop = true;
+    ldkWSP.show_mobile = true;
+    ldkWSP.labs = {
+          };
+    ldkWSP.notice = {
+    "title": "Informaci\u00f3n",
+    "type": "text"
+};
+    ldkWSP.name_request_message = {
+    "title": "Nombre",
+    "type": "text"
+};
+    ldkWSP.whats_app_request_message = {
+    "title": "WhatsApp",
+    "type": "text"
+};
+    ldkWSP.message_request_message = {
+    "title": "Mensaje",
+    "type": "text"
+};
+    ldkWSP.requestMessages = [
+    {
+        "title": "Hola que informacion requieres?",
+        "type": "text"
+    }
+];
+
+    ldkWSP.snippetsCampaigns = [];
+  }
+
+function loadWhatsAppWidget() {
+      setwhatsappConfig();
+    var wspHost = 'https://wb.cliengo.com';
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.id = mainWspScriptId;
+    s.src = wspHost + '/dist/js/mainWsp.js';
+    s.setAttribute('data-company-id', '5e680644e4b00d39920b4b88');
+    s.setAttribute('data-source-id', '636c009cda56c4002aff5abe');
+    s.setAttribute('data-host', wspHost);
+    s.async = true;
+    document.body.appendChild(s);
+  }
+
+
